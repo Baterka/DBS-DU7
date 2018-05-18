@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainController">
+    <children>
+        <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
+      <TabPane prefHeight="600.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Persons">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="569.0" prefWidth="817.0">
+                     <children>
+                        <TableView id="personsTable" fx:id="personsTable" layoutX="36.0" layoutY="14.0" prefHeight="428.0" prefWidth="728.0">
+                          <columns>
+                            <TableColumn id="ptID" fx:id="ptID" prefWidth="60.0" text="ID" />
+                            <TableColumn id="ptName" fx:id="ptName" prefWidth="136.0" text="Name" />
+                              <TableColumn id="ptSurname" fx:id="ptSurname" prefWidth="143.0" text="Surname" />
+                              <TableColumn id="ptBirthdate" fx:id="ptBirthdate" prefWidth="114.0" text="Birthdate" />
+                              <TableColumn id="ptAddress" fx:id="ptAddress" prefWidth="274.0" text="Address" />
+                          </columns>
+                        </TableView>
+                        <Button layoutX="334.0" layoutY="511.0" mnemonicParsing="false" onAction="#AddPerson" prefHeight="46.0" prefWidth="132.0" text="Add Person" />
+                        <Button layoutX="711.0" layoutY="442.0" mnemonicParsing="false" onAction="#ReloadPersons" text="Reload" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Banks">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="banksTable" layoutX="36.0" layoutY="14.0" prefHeight="428.0" prefWidth="728.0">
+                           <columns>
+                              <TableColumn fx:id="btID" prefWidth="60.0" text="ID" />
+                              <TableColumn fx:id="btName" prefWidth="220.0" text="Name" />
+                              <TableColumn fx:id="btCodename" prefWidth="100.0" text="Codename" />
+                              <TableColumn fx:id="btAddress" prefWidth="347.0" text="Address" />
+                           </columns>
+                        </TableView>
+                        <Button layoutX="334.0" layoutY="511.0" mnemonicParsing="false" onAction="#AddBank" prefHeight="46.0" prefWidth="132.0" text="Add Bank" />
+                        <Button layoutX="711.0" layoutY="442.0" mnemonicParsing="false" onAction="#ReloadBanks" text="Reload" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Persons in banks">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView layoutX="36.0" layoutY="14.0" prefHeight="428.0" prefWidth="728.0">
+                           <columns>
+                              <TableColumn prefWidth="100.0" text="Relationship ID" />
+                              <TableColumn prefWidth="229.0" text="Person" />
+                              <TableColumn prefWidth="251.0" text="Bank" />
+                              <TableColumn prefWidth="147.0" text="Assigned" />
+                           </columns>
+                        </TableView>
+                        <Button layoutX="309.0" layoutY="511.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="183.0" text="Add person to bank" />
+                        <Button layoutX="711.0" layoutY="442.0" mnemonicParsing="false" text="Reload" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+    </children>
+</AnchorPane>

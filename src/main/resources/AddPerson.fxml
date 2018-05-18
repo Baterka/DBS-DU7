@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.canvas.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="187.0" prefWidth="646.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AddPersonController">
+   <children>
+      <TextField fx:id="name" layoutX="95.0" layoutY="25.0" prefHeight="30.0" prefWidth="267.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <Text layoutX="14.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <Text layoutX="14.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Surname">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <TextField fx:id="surname" layoutX="95.0" layoutY="55.0" prefHeight="30.0" prefWidth="267.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="address" layoutX="95.0" layoutY="85.0" prefHeight="30.0" prefWidth="431.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <Text layoutX="14.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <TextField fx:id="bd" layoutX="95.0" layoutY="115.0" prefHeight="30.0" prefWidth="40.0" promptText="DD">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <Text layoutX="14.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Birthdate">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <TextField fx:id="bm" layoutX="135.0" layoutY="115.0" prefHeight="30.0" prefWidth="40.0" promptText="MM">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="by" layoutX="175.0" layoutY="115.0" prefHeight="30.0" prefWidth="53.0" promptText="YYYY">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <Button layoutX="517.0" layoutY="145.0" mnemonicParsing="false" onAction="#Add" prefHeight="30.0" prefWidth="115.0" text="Add" />
+      <Text fx:id="error" fill="RED" layoutX="14.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="470.61669921875">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>
