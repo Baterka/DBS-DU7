@@ -8,35 +8,35 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="186.0" prefWidth="488.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PopupController">
+<AnchorPane id="AnchorPane" prefHeight="186.0" prefWidth="488.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.PopupController">
    <children>
-      <Button fx:id="btnClose" layoutX="382.0" layoutY="148.0" mnemonicParsing="false" onAction="#Close" prefHeight="25.0" prefWidth="92.0" text="Close" />
-      <Button fx:id="btnDelete" layoutX="14.0" layoutY="148.0" mnemonicParsing="false" onAction="#Delete" text="Delete" />
-      <Text fx:id="text1" layoutX="13.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="462.6708984375">
+      <Button fx:id="btnClose" layoutX="382.0" layoutY="148.0" mnemonicParsing="false" onAction="#close" prefHeight="25.0" prefWidth="92.0" text="Close" />
+      <Button fx:id="btnDelete" layoutX="14.0" layoutY="148.0" mnemonicParsing="false" onAction="#delete" text="Delete" />
+      <Text fx:id="text1" layoutX="13.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="462.6708984375">
          <font>
             <Font size="15.0" />
          </font>
       </Text>
-      <Text fx:id="text2" layoutX="13.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="462.6708984375">
+      <Text fx:id="text2" layoutX="13.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="462.6708984375">
          <font>
             <Font size="15.0" />
          </font>
       </Text>
-      <Text fx:id="text3" layoutX="13.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="462.6708984375">
+      <Text fx:id="text3" layoutX="13.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="462.6708984375">
          <font>
             <Font size="15.0" />
          </font>
       </Text>
-      <Text fx:id="text4" layoutX="13.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="462.6708984375">
+      <Text fx:id="text4" layoutX="13.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="462.6708984375">
          <font>
             <Font size="15.0" />
          </font>
       </Text>
-      <Text fx:id="text5" layoutX="13.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="462.6708984375">
+      <Text fx:id="text5" layoutX="13.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="462.6708984375">
          <font>
             <Font size="15.0" />
          </font>
       </Text>
-      <Button fx:id="btnEdit" layoutX="74.0" layoutY="148.0" mnemonicParsing="false" onAction="#Edit" prefHeight="25.0" prefWidth="92.0" text="Edit" />
+      <Button fx:id="btnEdit" layoutX="74.0" layoutY="148.0" mnemonicParsing="false" onAction="#edit" prefHeight="25.0" prefWidth="92.0" text="Edit" />
    </children>
 </AnchorPane>

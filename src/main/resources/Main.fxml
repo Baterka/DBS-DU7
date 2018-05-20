@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.canvas.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -7,7 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.MainController">
     <children>
         <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
       <TabPane prefHeight="600.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE">
@@ -25,8 +26,8 @@
                               <TableColumn id="ptAddress" fx:id="ptAddress" prefWidth="274.0" text="Address" />
                           </columns>
                         </TableView>
-                        <Button layoutX="334.0" layoutY="511.0" mnemonicParsing="false" onAction="#AddPerson" prefHeight="46.0" prefWidth="132.0" text="Add Person" />
-                        <Button layoutX="711.0" layoutY="442.0" mnemonicParsing="false" onAction="#ReloadPersons" text="Reload" />
+                        <Button layoutX="334.0" layoutY="511.0" mnemonicParsing="false" onAction="#addPerson" prefHeight="46.0" prefWidth="132.0" text="Add Person" />
+                        <Button layoutX="711.0" layoutY="442.0" mnemonicParsing="false" onAction="#reloadPersons" text="Reload" />
                      </children>
                   </AnchorPane>
             </content>
@@ -43,8 +44,8 @@
                               <TableColumn fx:id="btAddress" prefWidth="347.0" text="Address" />
                            </columns>
                         </TableView>
-                        <Button layoutX="334.0" layoutY="511.0" mnemonicParsing="false" onAction="#AddBank" prefHeight="46.0" prefWidth="132.0" text="Add Bank" />
-                        <Button layoutX="711.0" layoutY="442.0" mnemonicParsing="false" onAction="#ReloadBanks" text="Reload" />
+                        <Button layoutX="334.0" layoutY="511.0" mnemonicParsing="false" onAction="#addBank" prefHeight="46.0" prefWidth="132.0" text="Add Bank" />
+                        <Button layoutX="711.0" layoutY="442.0" mnemonicParsing="false" onAction="#reloadBanks" text="Reload" />
                      </children>
                   </AnchorPane>
             </content>
@@ -53,21 +54,27 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TableView layoutX="36.0" layoutY="14.0" prefHeight="428.0" prefWidth="728.0">
+                        <TableView fx:id="personsBanksTable" layoutX="36.0" layoutY="14.0" prefHeight="428.0" prefWidth="728.0">
                            <columns>
-                              <TableColumn prefWidth="100.0" text="Relationship ID" />
-                              <TableColumn prefWidth="229.0" text="Person" />
-                              <TableColumn prefWidth="251.0" text="Bank" />
-                              <TableColumn prefWidth="147.0" text="Assigned" />
+                              <TableColumn fx:id="pbtID" prefWidth="100.0" text="Relationship ID" />
+                              <TableColumn fx:id="pbtPerson" prefWidth="229.0" text="Person" />
+                              <TableColumn fx:id="pbtBank" prefWidth="251.0" text="Bank" />
+                              <TableColumn fx:id="pbtAssigned" prefWidth="147.0" text="Assigned" />
                            </columns>
                         </TableView>
-                        <Button layoutX="309.0" layoutY="511.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="183.0" text="Add person to bank" />
-                        <Button layoutX="711.0" layoutY="442.0" mnemonicParsing="false" text="Reload" />
+                        <Button layoutX="309.0" layoutY="511.0" mnemonicParsing="false" onAction="#addPersonBank" prefHeight="46.0" prefWidth="183.0" text="Add person to bank" />
+                        <Button layoutX="711.0" layoutY="442.0" mnemonicParsing="false" onAction="#reloadPersonsBanks" text="Reload" />
                      </children>
                   </AnchorPane>
               </content>
             </Tab>
         </tabs>
       </TabPane>
+      <Text fx:id="error" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="489.13671875" x="300.0" y="20.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Created by David Bubeník (bubenda1)" wrappingWidth="227.015625" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="10.0" />
     </children>
 </AnchorPane>

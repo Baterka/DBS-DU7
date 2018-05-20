@@ -8,7 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="187.0" prefWidth="646.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.EditPersonController">
+<AnchorPane id="AnchorPane" prefHeight="224.0" prefWidth="646.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.EditPersonController">
    <children>
       <TextField fx:id="name" layoutX="95.0" layoutY="25.0" prefHeight="30.0" prefWidth="267.0">
          <font>
@@ -60,8 +60,8 @@
             <Font size="14.0" />
          </font>
       </TextField>
-      <Button layoutX="517.0" layoutY="145.0" mnemonicParsing="false" onAction="#Edit" prefHeight="30.0" prefWidth="115.0" text="Edit" />
-      <Text fx:id="error" fill="RED" layoutX="14.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="470.61669921875">
+      <Button layoutX="517.0" layoutY="179.0" mnemonicParsing="false" onAction="#edit" prefHeight="30.0" prefWidth="115.0" text="Edit" />
+      <Text fx:id="error" fill="RED" layoutX="14.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="470.61669921875">
          <font>
             <Font size="15.0" />
          </font>
