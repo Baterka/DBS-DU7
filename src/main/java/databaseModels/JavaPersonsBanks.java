@@ -1,6 +1,7 @@
-package dbModel;
+package databaseModels;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -67,8 +68,9 @@ public class JavaPersonsBanks implements Serializable {
         this.id = id;
     }
 
-    public Date getAssigned() {
-        return assigned;
+    public String getAssigned() {
+        SimpleDateFormat formatter = new SimpleDateFormat("d.M.yyyy");
+        return formatter.format(assigned);
     }
 
     public void setAssigned(Date assigned) {

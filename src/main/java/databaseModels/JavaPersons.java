@@ -1,7 +1,9 @@
-package dbModel;
+package databaseModels;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Collection;
+import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -13,6 +15,8 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -21,15 +25,16 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author David Bubeník (bubenda1)
  */
 @Entity
-@Table(name = "java_banks")
+@Table(name = "java_persons")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "JavaBanks.findAll", query = "SELECT j FROM JavaBanks j")
-    , @NamedQuery(name = "JavaBanks.findById", query = "SELECT j FROM JavaBanks j WHERE j.id = :id")
-    , @NamedQuery(name = "JavaBanks.findByName", query = "SELECT j FROM JavaBanks j WHERE j.name = :name")
-    , @NamedQuery(name = "JavaBanks.findByCodename", query = "SELECT j FROM JavaBanks j WHERE j.codename = :codename")
-    , @NamedQuery(name = "JavaBanks.findByAddress", query = "SELECT j FROM JavaBanks j WHERE j.address = :address")})
-public class JavaBanks implements Serializable {
+    @NamedQuery(name = "JavaPersons.findAll", query = "SELECT j FROM JavaPersons j")
+    , @NamedQuery(name = "JavaPersons.findById", query = "SELECT j FROM JavaPersons j WHERE j.id = :id")
+    , @NamedQuery(name = "JavaPersons.findByName", query = "SELECT j FROM JavaPersons j WHERE j.name = :name")
+    , @NamedQuery(name = "JavaPersons.findBySurname", query = "SELECT j FROM JavaPersons j WHERE j.surname = :surname")
+    , @NamedQuery(name = "JavaPersons.findByBirthdate", query = "SELECT j FROM JavaPersons j WHERE j.birthdate = :birthdate")
+    , @NamedQuery(name = "JavaPersons.findByAddress", query = "SELECT j FROM JavaPersons j WHERE j.address = :address")})
+public class JavaPersons implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -41,25 +46,30 @@ public class JavaBanks implements Serializable {
     @Column(name = "name")
     private String name;
     @Basic(optional = false)
-    @Column(name = "codename")
-    private String codename;
+    @Column(name = "surname")
+    private String surname;
+    @Basic(optional = false)
+    @Column(name = "birthdate")
+    @Temporal(TemporalType.DATE)
+    private Date birthdate;
     @Basic(optional = false)
     @Column(name = "address")
     private String address;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "bank")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "person")
     private Collection<JavaPersonsBanks> javaPersonsBanksCollection;
 
-    public JavaBanks() {
+    public JavaPersons() {
     }
 
-    public JavaBanks(Integer id) {
+    public JavaPersons(Integer id) {
         this.id = id;
     }
 
-    public JavaBanks(Integer id, String name, String codename, String address) {
+    public JavaPersons(Integer id, String name, String surname, Date birthdate, String address) {
         this.id = id;
         this.name = name;
-        this.codename = codename;
+        this.surname = surname;
+        this.birthdate = birthdate;
         this.address = address;
     }
 
@@ -79,12 +89,21 @@ public class JavaBanks implements Serializable {
         this.name = name;
     }
 
-    public String getCodename() {
-        return codename;
+    public String getSurname() {
+        return surname;
     }
 
-    public void setCodename(String codename) {
-        this.codename = codename;
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public String getBirthdate() {
+        SimpleDateFormat formatter = new SimpleDateFormat("d.M.yyyy");
+        return formatter.format(birthdate);
+    }
+
+    public void setBirthdate(Date birthdate) {
+        this.birthdate = birthdate;
     }
 
     public String getAddress() {
@@ -114,10 +133,10 @@ public class JavaBanks implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof JavaBanks)) {
+        if (!(object instanceof JavaPersons)) {
             return false;
         }
-        JavaBanks other = (JavaBanks) object;
+        JavaPersons other = (JavaPersons) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -126,7 +145,7 @@ public class JavaBanks implements Serializable {
 
     @Override
     public String toString() {
-        return "dbModel.JavaBanks[ id=" + id + " ]";
+        return "dbModel.JavaPersons[ id=" + id + " ]";
     }
-    
+
 }

@@ -1,8 +1,7 @@
-package dbModel;
+package databaseModels;
 
 import java.io.Serializable;
 import java.util.Collection;
-import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -14,8 +13,6 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -24,16 +21,15 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author David Bubeník (bubenda1)
  */
 @Entity
-@Table(name = "java_persons")
+@Table(name = "java_banks")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "JavaPersons.findAll", query = "SELECT j FROM JavaPersons j")
-    , @NamedQuery(name = "JavaPersons.findById", query = "SELECT j FROM JavaPersons j WHERE j.id = :id")
-    , @NamedQuery(name = "JavaPersons.findByName", query = "SELECT j FROM JavaPersons j WHERE j.name = :name")
-    , @NamedQuery(name = "JavaPersons.findBySurname", query = "SELECT j FROM JavaPersons j WHERE j.surname = :surname")
-    , @NamedQuery(name = "JavaPersons.findByBirthdate", query = "SELECT j FROM JavaPersons j WHERE j.birthdate = :birthdate")
-    , @NamedQuery(name = "JavaPersons.findByAddress", query = "SELECT j FROM JavaPersons j WHERE j.address = :address")})
-public class JavaPersons implements Serializable {
+    @NamedQuery(name = "JavaBanks.findAll", query = "SELECT j FROM JavaBanks j")
+    , @NamedQuery(name = "JavaBanks.findById", query = "SELECT j FROM JavaBanks j WHERE j.id = :id")
+    , @NamedQuery(name = "JavaBanks.findByName", query = "SELECT j FROM JavaBanks j WHERE j.name = :name")
+    , @NamedQuery(name = "JavaBanks.findByCodename", query = "SELECT j FROM JavaBanks j WHERE j.codename = :codename")
+    , @NamedQuery(name = "JavaBanks.findByAddress", query = "SELECT j FROM JavaBanks j WHERE j.address = :address")})
+public class JavaBanks implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -45,30 +41,25 @@ public class JavaPersons implements Serializable {
     @Column(name = "name")
     private String name;
     @Basic(optional = false)
-    @Column(name = "surname")
-    private String surname;
-    @Basic(optional = false)
-    @Column(name = "birthdate")
-    @Temporal(TemporalType.DATE)
-    private Date birthdate;
+    @Column(name = "codename")
+    private String codename;
     @Basic(optional = false)
     @Column(name = "address")
     private String address;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "person")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "bank")
     private Collection<JavaPersonsBanks> javaPersonsBanksCollection;
 
-    public JavaPersons() {
+    public JavaBanks() {
     }
 
-    public JavaPersons(Integer id) {
+    public JavaBanks(Integer id) {
         this.id = id;
     }
 
-    public JavaPersons(Integer id, String name, String surname, Date birthdate, String address) {
+    public JavaBanks(Integer id, String name, String codename, String address) {
         this.id = id;
         this.name = name;
-        this.surname = surname;
-        this.birthdate = birthdate;
+        this.codename = codename;
         this.address = address;
     }
 
@@ -88,20 +79,12 @@ public class JavaPersons implements Serializable {
         this.name = name;
     }
 
-    public String getSurname() {
-        return surname;
+    public String getCodename() {
+        return codename;
     }
 
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
-
-    public Date getBirthdate() {
-        return birthdate;
-    }
-
-    public void setBirthdate(Date birthdate) {
-        this.birthdate = birthdate;
+    public void setCodename(String codename) {
+        this.codename = codename;
     }
 
     public String getAddress() {
@@ -131,10 +114,10 @@ public class JavaPersons implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof JavaPersons)) {
+        if (!(object instanceof JavaBanks)) {
             return false;
         }
-        JavaPersons other = (JavaPersons) object;
+        JavaBanks other = (JavaBanks) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -143,7 +126,7 @@ public class JavaPersons implements Serializable {
 
     @Override
     public String toString() {
-        return "dbModel.JavaPersons[ id=" + id + " ]";
+        return "dbModel.JavaBanks[ id=" + id + " ]";
     }
     
 }

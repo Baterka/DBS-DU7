@@ -1,9 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package controller;
+package Controllers;
 
 import java.io.IOException;
 import java.util.logging.Level;
@@ -41,9 +36,6 @@ public class Main extends Application {
                 Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
             }
 
-            MainController mainController = Loader.getController();
-            mainController.updatePersons();
-            mainController.updateBanks();
             Parent p = Loader.getRoot();
             stage.setScene(new Scene(p));
             stage.setTitle("Database of banks and persons");

@@ -1,4 +1,4 @@
-package controller;
+package Controllers;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -20,7 +20,7 @@ public class ErrorController implements Initializable {
     Text text;
 
     @FXML
-    private void Close(ActionEvent ae) {
+    private void close(ActionEvent ae) {
         Stage stage = (Stage) title.getScene().getWindow();
         stage.close();
     }
