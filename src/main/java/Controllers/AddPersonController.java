@@ -1,5 +1,6 @@
 package Controllers;
 
+import Models.Formatter;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -52,8 +53,7 @@ public class AddPersonController implements Initializable {
                     address.getText()
             );
 
-            SimpleDateFormat sdf = new SimpleDateFormat("d-M-yyyy");
-            Date birthdate = sdf.parse(Integer.parseInt(bd.getText()) + "-" + Integer.parseInt(bm.getText()) + "-" + Integer.parseInt(by.getText()));
+            Date birthdate = Formatter.formatDate(Integer.parseInt(bd.getText()), Integer.parseInt(bm.getText()), Integer.parseInt(by.getText()));
 
             // Create
             PersonCRUD.create(

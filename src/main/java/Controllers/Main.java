@@ -21,13 +21,17 @@ public class Main extends Application {
 
     public static EntityManager em = null;
 
+    public void initDatabase() {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("PU");
+        em = emf.createEntityManager();
+    }
+
     @Override
     public void start(Stage stage) throws Exception {
 
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("PU");
-
         try {
-            em = emf.createEntityManager();
+            initDatabase();
+            
             FXMLLoader Loader = new FXMLLoader(getClass().getClassLoader().getResource("Main.fxml"));
 
             try {

@@ -10,7 +10,7 @@ import java.util.Collection;
  */
 public class BankCRUD {
 
-    public static void create(String name, String codename, String address) throws Exception {
+    public static int create(String name, String codename, String address) throws Exception {
 
         JavaBanks bank = new JavaBanks();
 
@@ -22,6 +22,7 @@ public class BankCRUD {
             Main.em.getTransaction().begin();
             Main.em.persist(bank);
             Main.em.getTransaction().commit();
+            return bank.getId();
         } catch (Exception e) {
             throw new Exception(DatabaseErrors.getMessage(e));
         }

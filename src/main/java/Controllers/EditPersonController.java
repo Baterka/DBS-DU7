@@ -1,5 +1,6 @@
 package Controllers;
 
+import Models.Formatter;
 import Models.PersonCRUD;
 import databaseModels.JavaPersons;
 import java.net.URL;
@@ -55,9 +56,8 @@ public class EditPersonController implements Initializable {
                     by.getText(),
                     address.getText()
             );
-            
-            SimpleDateFormat sdf = new SimpleDateFormat("d-M-yyyy");
-            Date birthdate = sdf.parse(Integer.parseInt(bd.getText()) + "-" + Integer.parseInt(bm.getText()) + "-" + Integer.parseInt(by.getText()));
+
+            Date birthdate = Formatter.formatDate(Integer.parseInt(bd.getText()), Integer.parseInt(bm.getText()), Integer.parseInt(by.getText()));
 
             // Update
             PersonCRUD.update(
@@ -88,7 +88,7 @@ public class EditPersonController implements Initializable {
             return false;
         }
     }
-    
+
     public void setData(int id, String name, String surname, String bd, String bm, String by, String address) {
         this.id = id;
         this.name.setText(name);
@@ -102,7 +102,7 @@ public class EditPersonController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
     }
-    
+
     private void closeWindow() {
 
         Stage stage = (Stage) name.getScene().getWindow();

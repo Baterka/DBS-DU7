@@ -13,7 +13,7 @@ import java.util.Date;
  */
 public class PersonBankCRUD {
 
-    public static void create(JavaPersons person, JavaBanks bank) throws Exception {
+    public static int create(JavaPersons person, JavaBanks bank) throws Exception {
         JavaPersonsBanks personBank = new JavaPersonsBanks();
 
         personBank.setPerson(person);
@@ -25,6 +25,7 @@ public class PersonBankCRUD {
             Main.em.getTransaction().begin();
             Main.em.persist(personBank);
             Main.em.getTransaction().commit();
+            return personBank.getId();
 
         } catch (Exception e) {
             throw new Exception(DatabaseErrors.getMessage(e));

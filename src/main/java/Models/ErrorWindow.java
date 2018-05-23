@@ -24,6 +24,14 @@ public class ErrorWindow {
         this.message = message;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
     public void open() {
 
         try {

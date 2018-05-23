@@ -11,7 +11,7 @@ import java.util.Date;
  */
 public class PersonCRUD {
 
-    public static void create(String name, String surname, Date birthdate, String address) throws Exception {
+    public static int create(String name, String surname, Date birthdate, String address) throws Exception {
 
         JavaPersons person = new JavaPersons();
 
@@ -25,6 +25,7 @@ public class PersonCRUD {
             Main.em.getTransaction().begin();
             Main.em.persist(person);
             Main.em.getTransaction().commit();
+            return person.getId();
 
         } catch (Exception e) {
             throw new Exception(DatabaseErrors.getMessage(e));

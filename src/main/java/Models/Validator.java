@@ -6,7 +6,7 @@ package Models;
  */
 public class Validator {
 
-    public void validatePersonForm(String name, String surname, String birthdateDay, String birthdateMonth, String birthYear, String address) throws Exception {
+    public boolean validatePersonForm(String name, String surname, String birthdateDay, String birthdateMonth, String birthYear, String address) throws Exception {
 
         if (name.length() < 1 || name.length() > 255) {
             throw new Exception("Name must be 1-255 characters long.");
@@ -38,10 +38,12 @@ public class Validator {
         if (y < 1900 || y > 2018) {
             throw new Exception("Birthdate year is in bad format.");
         }
+        
+        return true;
 
     }
 
-    public void validateBankForm(String name, String codename, String address) throws Exception {
+    public boolean validateBankForm(String name, String codename, String address) throws Exception {
 
         if (name.length() < 1 || name.length() > 255) {
             throw new Exception("Name must be 1-255 characters long.");
@@ -53,5 +55,6 @@ public class Validator {
             throw new Exception("Address must be 1-255 characters long.");
         }
 
+        return true;
     }
 }
