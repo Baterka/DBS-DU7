@@ -2,6 +2,9 @@
 ## Java PostgreSQL Database CRUD Controller
 Homework #7 for subject [B0B36DBS](http://www.ksi.mff.cuni.cz/~svoboda/courses/172-B0B36DBS/) on [CTU in Prague](https://cvut.cz)
 
+#### 23.05.2018
+Added seminar paper document for subject B6B36TS1 (Built on this homework)
+
 ### Task
 -   Assignment:
     -   :heavy_check_mark:**Implement a simple desktop application in Java with JPA access to the database**
